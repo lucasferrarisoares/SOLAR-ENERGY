@@ -10,3 +10,11 @@ def register_routes(app):
         return render_template('index.html')
     
     app.add_url_rule('/api/data', view_func=controller.getAllDatajson)
+
+    @app.route('/api/filtertemp/<temp>')
+    def filter_temp(temp):
+        return controller.filterbytempjson(temp)
+    
+    @app.route('/api/filterdate/<date>')
+    def filter_date(date):
+        return controller.filterbydatejson(date)

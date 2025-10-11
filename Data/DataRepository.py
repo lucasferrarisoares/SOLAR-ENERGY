@@ -43,13 +43,18 @@ class DataRepository:
         self.db_connection.commit()
         cursor.close()
 
-    def getDataModels(self):
+    def getDataModels(self, where_clause=None, params=None):
         cursor = self.db_connection.cursor()
-        cursor.execute("SELECT * FROM DataModel")
+
+        query = "SELECT * FROM DataModel"
+        if where_clause:
+            query += f" {where_clause}"
+
+        cursor.execute(query, params or ())
         rows = cursor.fetchall()
         cursor.close()
 
-        data_models = [
+        return [
             DataModel(
                 id=row[0],
                 date=row[1].strftime("%d/%m/%Y"),
@@ -59,9 +64,9 @@ class DataRepository:
             )
             for row in rows
         ]
-        return data_models
+
     
-    def getDataModelsJson(self):
+    def getDataModelsJson(self, function):
         result = [
             {
                 "date": dm.date,
@@ -69,9 +74,10 @@ class DataRepository:
                 "temperature": dm.temperature,
                 "performance": dm.performance
             }
-            for dm in self.getDataModels()
+            for dm in function
         ]
         return result
+    
     
     def getDataModelByDate(self, date):
         cursor = self.db_connection.cursor()

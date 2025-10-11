@@ -17,10 +17,11 @@ except psycopg.OperationalError as e:
 
 def verifyTable():
     cursor = conection.cursor()
-    cursor.execute("""
+    cursor.execute(
+        """
         SELECT EXISTS (
             SELECT FROM information_schema.tables 
-            WHERE table_schema = 'public' AND table_name = "DataModel"
+            WHERE table_schema = 'public' AND table_name = 'datamodel'
         );
     """, )
     exists = cursor.fetchone()[0]
@@ -42,7 +43,7 @@ def createTable():
     return print("Tabela criada com sucesso!")
 
 
-if verifyTable():
+if verifyTable() is True:
     print("Tabela existe!")
 else:
     createTable()

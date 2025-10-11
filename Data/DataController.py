@@ -16,7 +16,13 @@ class DataController:
         return self.repository.deleteData(data)
 
     def getAllDatajson(self):
-        return jsonify(self.repository.getDataModelsJson())
+        return jsonify(self.repository.getDataModelsJson(self.repository.getDataModels()))
     
     def getAllData(self):
         return self.repository.getDataModels()
+    
+    def filterbytempjson(self, temp):
+        return jsonify(self.repository.getDataModelsJson(self.repository.getDataModels("WHERE temperature = %s", (temp,))))
+    
+    def filterbydatejson(self, date):
+        return jsonify(self.repository.getDataModelsJson(self.repository.getDataModels("WHERE date = %s", (date,))))

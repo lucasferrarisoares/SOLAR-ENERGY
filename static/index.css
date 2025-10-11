@@ -1,20 +1,63 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
     margin: 0;
     padding: 0;
 }
 .container {
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 650px;
+    margin: 48px auto;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    padding: 32px 28px 28px 28px;
 }
 h1 {
     text-align: center;
+    color: #0077cc;
+    margin-bottom: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.form-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+.form-bar label {
+    font-size: 16px;
     color: #333;
+}
+input[type="date"],
+input[type="number"] {
+    padding: 7px 10px;
+    border: 1px solid #b5c9e2;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-left: 6px;
+    background: #f5faff;
+    transition: border 0.2s;
+}
+input[type="date"]:focus,
+input[type="number"]:focus {
+    border-color: #0077cc;
+    outline: none;
+}
+button#clearfilter-btn {
+    padding: 8px 22px;
+    background: linear-gradient(90deg, #0077cc 60%, #00c6fb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,119,204,0.08);
+    transition: background 0.2s;
+}
+button#clearfilter-btn:hover {
+    background: linear-gradient(90deg, #005fa3 60%, #009ec3 100%);
 }
 ul {
     list-style: none;
@@ -22,13 +65,18 @@ ul {
 }
 li {
     margin-bottom: 18px;
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
+    padding: 16px 14px;
+    border-bottom: 1px solid #e3eaf5;
+    background: #f8fbff;
+    border-radius: 7px;
+    box-shadow: 0 1px 4px rgba(0,119,204,0.04);
     transition: background 0.2s;
 }
 li:hover {
-    background: #f0f8ff;
+    background: #eaf6ff;
+}
+li strong {
+    color: #0077cc;
 }
 .desc {
     margin-top: 8px;
