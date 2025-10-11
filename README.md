@@ -7,4 +7,4 @@ O projeto necessita somente das seguintes bibliotecas: flask, pandas, psycopg
 Basta apenas rodar o arquivo "main.py" que o projeto funcionara.
 
 
-OBS: Pensando em escalabilidade, algumas funções que ainda não estão em uso já foram criadas, pensando em análise dos dados.
+OBS: Pensando em escalabilidade, algumas funções que ainda não estão em uso já foram criadas, visando a análise dos dados.
